@@ -53,7 +53,7 @@ export default class FIXParserClientSocket extends FIXParserClientBase {
 
         this.socketTCP!.connect(this.port!, this.host!, () => {
             this.connected = true;
-            console.log('Connected');
+            console.log('Connected now');
             this.eventEmitter!.emit('open');
             this.startHeartbeat();
         });
