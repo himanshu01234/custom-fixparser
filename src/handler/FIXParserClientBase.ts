@@ -42,6 +42,7 @@ export default class FIXParserClientBase extends EventEmitter {
     public startHeartbeat() {
         this.stopHeartbeat();
         this.heartBeatIntervalId = setInterval(() => {
+            console.log("Heartbeat function");
             const heartBeat = this.fixParser!.createMessage(
                 new Field(8, this.fixVersion),
                 new Field(Fields.MsgType, 0),
@@ -52,9 +53,6 @@ export default class FIXParserClientBase extends EventEmitter {
                 new Field(Fields.SenderCompID, this.sender),
                 new Field(Fields.SendingTime, this.fixParser!.getTimestamp()),
                 new Field(Fields.TargetCompID, this.target),
-                new Field(Fields.Username, 'VertoAPI'),
-                new Field(Fields.Password, 'qzG6jXL6BU'),
-                new Field(Fields.EncryptMethod, '0'),
             );
             this.send(heartBeat);
         }, this.heartBeatInterval!);
