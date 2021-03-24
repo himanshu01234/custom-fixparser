@@ -42,9 +42,10 @@ export default class FIXParserClientBase extends EventEmitter {
     public startHeartbeat() {
         this.stopHeartbeat();
         this.heartBeatIntervalId = setInterval(() => {
+            console.log("Heart beat function", this.fixVersion, this.sender);
             const heartBeat = this.fixParser!.createMessage(
                 new Field(8, this.fixVersion),
-                new Field(Fields.MsgType, 0),
+                new Field(Fields.MsgType, 'A'),
                 new Field(
                     Fields.MsgSeqNum,
                     this.fixParser!.getNextTargetMsgSeqNum(),
