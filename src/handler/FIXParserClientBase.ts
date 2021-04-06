@@ -54,7 +54,6 @@ export default class FIXParserClientBase extends EventEmitter {
                 new Field(Fields.SendingTime, this.fixParser!.getTimestamp()),
                 new Field(Fields.TargetCompID, this.target),
             );
-            console.log("59---->>>>>>>>", heartBeat.encode(), heartBeat);
             this.send(heartBeat);
         }, this.heartBeatInterval!);
     }
