@@ -68,9 +68,9 @@ export default class FIXParserClientBase extends EventEmitter {
                 this.fixParser!.setNextTargetMsgSeqNum(newSeqNo);
             }
         }
-        console.log(
-            `[${Date.now()}] FIXClient received message ${message.description}`,
-        );
+//         console.log(
+//             `[${Date.now()}] FIXClient received message ${message.description}`,
+//         );
     }
 
     public send(message: Message) {
